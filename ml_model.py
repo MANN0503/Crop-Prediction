@@ -3,7 +3,8 @@
 
 # In[1]:
 
-
+from flask import Flask, render_template
+from flask.ext.assets import Environment
 from __future__ import print_function
 import pandas as pd
 import numpy as np
@@ -252,4 +253,16 @@ print(prediction)
 data = np.array([[83, 45, 60, 28, 70.3, 7.0, 150.9]])
 prediction = RF.predict(data)
 print(prediction)
+
+
+
+
+app = Flask(__name__)
+
+assets = Environment(app)
+assets.register('css/styler.css', 'static/css/styler.css')
+
+@app.route('/')
+def index():
+  return render_template('result.html')
 
