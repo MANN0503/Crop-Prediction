@@ -3,7 +3,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from ml_model import pickle
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 model = pickle.load(open('RandomForest.pkl', 'rb'))
 
 @app.route('/')
