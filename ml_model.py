@@ -262,7 +262,7 @@ app = Flask(__name__)
 assets = Environment(app)
 assets.register('css/styler.css', 'static/css/styler.css')
 
-@app.route('/result', methods = ['GET','POST'])
-def result():
-  return render_template('result.html', prediction=prediction)
+@app.route('/')
+def index():
+  return render_template('result.html')
 
